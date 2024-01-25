@@ -1,0 +1,15 @@
+Calendar = 
+VAR MinYear = 1990
+VAR MaxYear = 2020
+RETURN
+ADDCOLUMNS (
+    FILTER (
+        CALENDAR(DATE(MinYear, 1, 1), DATE(MaxYear, 12, 31)),
+        TRUE()
+    ),
+    "Year", YEAR([Date]),
+    "Month Name", FORMAT([Date], "mmmm"),
+    "Month Number", MONTH([Date]),
+    "Day", FORMAT([Date], "dd"),
+    "Day Number", DAY([Date])
+)
